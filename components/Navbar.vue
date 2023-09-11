@@ -1,6 +1,9 @@
 <script setup>
+import { OnClickOutside } from '@vueuse/components'
+
 const isSearchVisible = ref(false)
 const isUserMenuVisible = ref(false)
+
 </script>
 
 <template>
@@ -21,22 +24,24 @@ const isUserMenuVisible = ref(false)
       <font-awesome-icon @click="isSearchVisible = !isSearchVisible" class="text text-xl p-2 ml-4 my-auto"
         :icon="['fas', 'magnifying-glass']" />
     </div>
-    <div class="relative">
-      <img @click="isUserMenuVisible = !isUserMenuVisible" src="/roadrunner.jpg"
-        class="object-fill h-14 w-14 my-1 rounded-full transition duration-200 hover:opacity-60">
-      <div v-if="isUserMenuVisible" class="text absolute mt-2">
-        <NavbarUserMenu />
+    <OnClickOutside @trigger="isUserMenuVisible = false">
+      <div class="relative">
+        <img @click="isUserMenuVisible = !isUserMenuVisible" src="/roadrunner.jpg"
+          class="object-fill h-14 w-14 my-1 rounded-full transition duration-200 hover:opacity-60">
+        <div v-if="isUserMenuVisible" class="text absolute mt-2">
+          <NavbarUserMenu />
+        </div>
       </div>
-    </div>
+    </OnClickOutside>
   </div>
-  <Transition>
+  <Transition name="slide-search">
     <div v-if="isSearchVisible">
       <div class="flex items-center justify-center py-2 bg-slate-900">
         <div class="w-1/2 flex h-10">
           <input class="w-full rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
             placeholder="input here" />
           <button
-            class="px-8 rounded-r-lg bg-gray-400  text-gray-800 font-bold uppercase border-gray-500 border-t border-b border-r">Search</button>
+            class="px-8 rounded-r-lg bg-slate-400  text-slate-800 font-bold uppercase border-slate-500 border-t border-b border-r">Search</button>
         </div>
       </div>
     </div>
@@ -44,18 +49,14 @@ const isUserMenuVisible = ref(false)
 </template>
 
 <style scoped>
-.text {
-  @apply text-white;
-}
-
-.v-enter-active,
-.v-leave-active {
+.slide-search-enter-active,
+.slide-search-leave-active {
   transform-origin: top;
   transition: transform .3s ease-in-out;
 }
 
-.v-enter-from,
-.v-leave-to {
+.slide-search-enter-from,
+.slide-search-leave-to {
   transform: scaleY(0);
 }
 </style>

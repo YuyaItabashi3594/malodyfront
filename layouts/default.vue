@@ -10,8 +10,8 @@ nuxtApp.hook("page:finish", () => {
 </script>
 
 <template>
-  <Transition>
-    <div v-if="loading" class="fixed inset-0 flex items-center justify-center z-10 w-full h-full">
+  <Transition name="loading">
+    <div v-if="loading" class="fixed inset-0 flex items-center justify-center z-10 w-full h-full bg-slate-800">
       <p>loading</p>
     </div>
   </Transition>
@@ -31,6 +31,18 @@ nuxtApp.hook("page:finish", () => {
 
 <style>
 body {
-  @apply bg-slate-700;
+  @apply bg-slate-800;
+}
+
+.text {
+  @apply text-white;
+}
+
+.loading-leave-active {
+  transition: opacity 1.0s ease;
+}
+
+.loading-leave-to {
+  opacity: 0;
 }
 </style>
