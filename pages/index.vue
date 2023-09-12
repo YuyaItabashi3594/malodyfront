@@ -4,11 +4,13 @@
       <p class="text text-2xl">Welcome to the Malody community!</p>
       <p class="text mt-4">Malody is a cross-platform music game which is developed by a group of dedicated volunteers.
         The charts here are created by players from all around the world. Join us now to start a new journey.</p>
-
     </div>
     <div class="flex mt-10">
       <div class="w-1/2">
         <NewsColumn />
+      </div>
+      <div class="w-1/2">
+        <SongColumn />
       </div>
     </div>
   </div>
