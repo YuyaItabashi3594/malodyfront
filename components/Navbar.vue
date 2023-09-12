@@ -7,7 +7,7 @@ const isUserMenuVisible = ref(false)
 </script>
 
 <template>
-  <div class="flex items-center justify-center bg-slate-900">
+  <div class="flex items-center justify-center bg-slate-900 relative">
     <div class="w-2/5 flex">
       <NuxtLink :to="'/'">
         <p class="flex"><img class="object-scale-down h-8 my-auto" src="/icon-64.png">
@@ -21,7 +21,7 @@ const isUserMenuVisible = ref(false)
         <NavbarContent :text="'Store'" :url="'/store'" />
         <NavbarContent :text="'Forum'" :url="'/forum'" />
       </div>
-      <font-awesome-icon @click="isSearchVisible = !isSearchVisible" class="text text-xl p-2 ml-4 my-auto"
+      <font-awesome-icon @click="isSearchVisible = !isSearchVisible" class="text text-xl p-2 ml-4 my-auto cursor-pointer"
         :icon="['fas', 'magnifying-glass']" />
     </div>
     <OnClickOutside @trigger="isUserMenuVisible = false">
@@ -35,13 +35,13 @@ const isUserMenuVisible = ref(false)
     </OnClickOutside>
   </div>
   <Transition name="slide-search">
-    <div v-if="isSearchVisible">
-      <div class="flex items-center justify-center py-2 bg-slate-900">
+    <div v-if="isSearchVisible" class="absolute w-full">
+      <div class="flex items-center justify-center py-2 bg-slate-900/75">
         <div class="w-1/2 flex h-10">
           <input class="w-full rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
             placeholder="input here" />
           <button
-            class="px-8 rounded-r-lg bg-slate-400  text-slate-800 font-bold uppercase border-slate-500 border-t border-b border-r">Search</button>
+            class="px-8 rounded-r-lg bg-slate-400 hover:bg-slate-300 text-slate-800 font-bold uppercase border-slate-500 border-t border-b border-r">Search</button>
         </div>
       </div>
     </div>
