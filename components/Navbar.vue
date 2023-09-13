@@ -21,6 +21,7 @@ const isUserMenuVisible = ref(false)
         <NavbarContent :text="'Store'" :url="'/store'" />
         <NavbarContent :text="'Forum'" :url="'/forum'" />
       </div>
+      <font-awesome-icon class="text text-xl my-auto ml-2" :icon="['fab', 'discord']" />
       <font-awesome-icon @click="isSearchVisible = !isSearchVisible" class="text text-xl p-2 ml-4 my-auto cursor-pointer"
         :icon="['fas', 'magnifying-glass']" />
     </div>

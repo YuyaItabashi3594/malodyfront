@@ -10,13 +10,21 @@ const props = defineProps({
   }
 })
 
+
 const title = props.news.title
-const date = props.news.date.substr(0, 10)
+console.log(props.news.date)
+const date = computed(() => {
+  if (props.news.date == undefined) {
+    return ''
+  } else {
+    return props.news.date.substring(0, 10)
+  }
+})
 const description = props.news.description
 const img = props.news.img
 
 const isNewerNews = computed(() => {
-  if(props.index < 3) // 3 newer news will have image and description
+  if (props.index < 3) // 3 newer news will have image and description
     return true
   else
     return false
