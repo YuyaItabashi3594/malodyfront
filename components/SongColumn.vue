@@ -109,13 +109,14 @@ function checkNewChart(stableDate){
 
 <template>
   <div class="mr-10 ml-4">
-    <p class="text-slate-200 text-2xl">New Stable Charts</p>
+    <p class="text-slate-200 text-2xl">{{ $t('newArrival') }}</p>
     <div class="px-4 mt-4">
       <Carousel v-model="newSongCarousel" :autoplay="5000" :pauseAutoplayOnHover="true" :itemsToShow="1.95"
         :wrapAround="true" :transition="500">
         <Slide v-for="(slide, index) in testData" :key="slide">
           <div class="carousel__item relative">
             <CarouselContent :slide="slide" :isLinkActive="index === newSongCarousel"
+            :isNewChart="checkNewChart(slide.stableDate)"
               @clicked="changeNewSongActiveSlide(index)" />
           </div>
         </Slide>
@@ -127,7 +128,6 @@ function checkNewChart(stableDate){
       <div class="text" v-for="(slide, index) in testData">
         <div class="mt-1 relative flex items-center justify-center transition duration-100"
           :class="[index === newSongCarousel ? '' : 'opacity-60']">
-          <p v-if="checkNewChart(slide.stableDate)" class="absolute -left-6 top-1 text-sm">New!</p>
           <div class="divide-x flex gap-1 w-full ml-4">
             <img class="object-scale-down h-8 w-8" :src="`/${slide.mode}.png`">
             <p class="px-1 w-40 truncate py-0.5">{{ slide.title }}</p>
@@ -137,13 +137,14 @@ function checkNewChart(stableDate){
       </div>
     </div>
     
-    <p class="text-slate-200 text-2xl mt-6">Popular Charts</p>
+    <p class="text-slate-200 text-2xl mt-6">{{ $t('weeklyShow') }}</p>
     <div class="px-4 mt-4">
       <Carousel v-model="popularChartCarousel" :autoplay="5000" :pauseAutoplayOnHover="true" :itemsToShow="1.95"
         :wrapAround="true" :transition="500">
         <Slide v-for="(slide, index) in popularChartTestData" :key="slide">
           <div class="carousel__item relative">
             <CarouselContent :slide="slide" :isLinkActive="index === popularChartCarousel"
+            :playcount="slide.playcount"
               @clicked="changePopularChartActiveSlide(index)" />
           </div>
         </Slide>
@@ -155,10 +156,9 @@ function checkNewChart(stableDate){
       <div class="text" v-for="(slide, index) in popularChartTestData">
         <div class="mt-1 relative flex items-center justify-center transition duration-100"
           :class="[index === popularChartCarousel ? '' : 'opacity-60']">
-          <p class="absolute -left-3 top-1 text-sm">{{ slide.playcount }}</p>
-          <div class="divide-x flex gap-1 w-full ml-10">
+          <div class="divide-x flex gap-1 w-full ml-4">
             <img class="object-scale-down h-8 w-8" :src="`/${slide.mode}.png`">
-            <p class="px-1 w-32 truncate py-0.5">{{ slide.title }}</p>
+            <p class="px-1 w-40 truncate py-0.5">{{ slide.title }}</p>
             <p class="px-1 truncate py-0.5">{{ slide.diff }}</p>
           </div>
         </div>

@@ -7,7 +7,7 @@ const query: QueryBuilderParams = ref({ path: '/news', limit: articleAmount, sor
 
 <template>
   <div class="h-auto text ml-6 mb-4">
-    <p class="text-slate-200 text-2xl">News</p>
+    <p class="text-slate-200 text-2xl">{{ $t('news') }}</p>
     <div class="mt-4 rounded-lg">
       <ContentList :query="query" v-slot="{ list }">
         <article v-for="(news, index) in list" :key="news._path">

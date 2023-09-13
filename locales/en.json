@@ -1,0 +1,15 @@
+{
+  
+  "player": "Player",
+  "chart": "Chart",
+  "skin": "Skin",
+  "store": "Store",
+  "forum": "Forum",
+  "selectLanguage": "Select Language",
+  "profile": "Profile",
+  "logout": "Logout",
+
+  "news": "News",
+  "newArrival": "New Arrival",
+  "weeklyShow": "Weekly Show"
+}

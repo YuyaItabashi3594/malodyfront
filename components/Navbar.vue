@@ -1,29 +1,35 @@
 <script setup>
 import { OnClickOutside } from '@vueuse/components'
-
+const { locale } = useI18n()
 const isSearchVisible = ref(false)
 const isUserMenuVisible = ref(false)
 
 </script>
 
 <template>
-  <div class="flex items-center justify-center bg-slate-900 relative">
-    <div class="w-2/5 flex">
+  <div class="flex items-center px-10 justify-center bg-slate-900">
+    <div class="w-full flex">
       <NuxtLink :to="'/'">
-        <p class="flex"><img class="object-scale-down h-8 my-auto" src="/icon-64.png">
+        <p class="flex"><img class="object-scale-down h-8 mt-0.5" src="/icon-64.png">
           <span class="text text-center py-1 px-2">Malody</span>
         </p>
       </NuxtLink>
-      <div class="flex text ml-6 gap-2">
-        <NavbarContent :text="'Player'" :url="'/player'" />
-        <NavbarContent :text="'Chart'" :url="'/chart'" />
-        <NavbarContent :text="'Skin'" :url="'/skin'" />
-        <NavbarContent :text="'Store'" :url="'/store'" />
-        <NavbarContent :text="'Forum'" :url="'/forum'" />
+      <div class="flex text ml-8 gap-2">
+        <NavbarContent :text="'player'" :url="'/player'" />
+        <NavbarContent :text="'chart'" :url="'/chart'" />
+        <NavbarContent :text="'skin'" :url="'/skin'" />
+        <NavbarContent :text="'store'" :url="'/store'" />
+        <NavbarContent :text="'forum'" :url="'/forum'" />
       </div>
-      <font-awesome-icon class="text text-xl my-auto ml-2" :icon="['fab', 'discord']" />
-      <font-awesome-icon @click="isSearchVisible = !isSearchVisible" class="text text-xl p-2 ml-4 my-auto cursor-pointer"
-        :icon="['fas', 'magnifying-glass']" />
+      <ClientOnly><font-awesome-icon class="text text-xl my-auto ml-4" :icon="['fab', 'discord']" />
+        <font-awesome-icon @click="isSearchVisible = !isSearchVisible"
+          class="text text-xl p-2 ml-4 my-auto cursor-pointer" :icon="['fas', 'magnifying-glass']" />
+      </ClientOnly>
+      <select class="ml-4 rounded-lg pl-3 pr-2" v-model="locale">
+        <option disabled value="">{{ $t('selectLanguage') }}</option>
+        <option value="en">English</option>
+        <option value="jp">日本語</option>
+      </select>
     </div>
     <OnClickOutside @trigger="isUserMenuVisible = false">
       <div class="relative">
@@ -36,7 +42,7 @@ const isUserMenuVisible = ref(false)
     </OnClickOutside>
   </div>
   <Transition name="slide-search">
-    <div v-if="isSearchVisible" class="absolute w-full">
+    <div v-if="isSearchVisible" class="w-full">
       <div class="flex items-center justify-center py-2 bg-slate-900/75">
         <div class="w-1/2 flex h-10">
           <input class="w-full rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"

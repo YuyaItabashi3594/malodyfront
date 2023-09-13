@@ -10,7 +10,7 @@ const props = defineProps({
   }
 })
 
-
+// TODO:undefined時はデフォルトの奴を出すようにする
 const title = props.news.title
 console.log(props.news.date)
 const date = computed(() => {

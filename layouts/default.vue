@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const nuxtApp = useNuxtApp();
 const loading = ref(true);
+
 nuxtApp.hook("page:start", () => {
   loading.value = true;
 });
@@ -15,7 +16,7 @@ nuxtApp.hook("page:finish", () => {
       <p>loading</p>
     </div>
   </Transition>
-  <div class="h-auto min-h-screen">
+  <div class="layout mx-auto px-2">
     <div class="items-center justify-top flex flex-col pb-10">
       <div class="w-full">
         <header>
@@ -24,12 +25,15 @@ nuxtApp.hook("page:finish", () => {
         <div class="">
           <slot />
         </div>
+        <Footer />
       </div>
     </div>
   </div>
 </template>
 
 <style>
+
+
 body {
   @apply bg-slate-800;
 }
@@ -44,5 +48,10 @@ body {
 
 .loading-leave-to {
   opacity: 0;
+}
+
+.layout {
+  height: 100vh;
+  width: 1080px;
 }
 </style>
