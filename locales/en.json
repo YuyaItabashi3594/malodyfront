@@ -7,9 +7,22 @@
   "forum": "Forum",
   "selectLanguage": "Select Language",
   "profile": "Profile",
+  "messages": "Messages",
   "logout": "Logout",
 
   "news": "News",
   "newArrival": "New Arrival",
-  "weeklyShow": "Weekly Show"
+  "weeklyShow": "Weekly Show",
+
+  "gender": "Gender",
+  "yearsOld": " years old",
+  "gold": "Gold",
+  "income": "Income",
+  "chartsBeenPlayed": "Charts Been Played",
+  "stableCharts": "Stable Charts",
+  "unstableCharts": "Unstable Charts",
+  "chartSlots": "Chart Slots",
+  "joined": "Joined",
+  "lastLogin": "Last Login",
+  "totalPlayTime": "Total Play Time"
 }

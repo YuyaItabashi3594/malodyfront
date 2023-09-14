@@ -7,9 +7,22 @@
   "forum": "フォーラム",
   "selectLanguage": "言語を選択",
   "profile": "プロフィール",
+  "messages": "メッセージ",
   "logout": "ログアウト",
 
   "news": "お知らせ",
   "newArrival": "新規追加",
-  "weeklyShow": "週間ランキング"
+  "weeklyShow": "週間ランキング",
+
+  "gender": "性別",
+  "yearsOld": "歳",
+  "gold": "ゴールド",
+  "income": "収入",
+  "chartsBeenPlayed": "譜面がプレイされた時間",
+  "stableCharts": "Stable譜面数",
+  "unstableCharts": "Unstable譜面数",
+  "chartSlots": "譜面スロット数",
+  "joined": "登録日",
+  "lastLogin": "最終ログイン",
+  "totalPlayTime": "プレイ時間"
 }
