@@ -35,7 +35,7 @@ const isUserMenuVisible = ref(false)
       <div class="relative">
         <img @click="isUserMenuVisible = !isUserMenuVisible" src="/roadrunner.jpg"
           class="object-fill h-14 w-14 my-1 rounded-full transition duration-200 hover:opacity-60">
-        <div v-if="isUserMenuVisible" class="text absolute mt-2">
+        <div v-if="isUserMenuVisible" class="text absolute mt-2 z-10">
           <NavbarUserMenu />
         </div>
       </div>

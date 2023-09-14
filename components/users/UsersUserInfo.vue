@@ -47,4 +47,6 @@ const tags = ['Publisher', 'Editor']
 .info {
   @apply flex gap-3 text-sm
 }
+
+
 </style>

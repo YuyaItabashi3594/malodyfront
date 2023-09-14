@@ -2,6 +2,7 @@
 const nuxtApp = useNuxtApp();
 const loading = ref(true);
 
+
 nuxtApp.hook("page:start", () => {
   loading.value = true;
 });
@@ -32,7 +33,6 @@ nuxtApp.hook("page:finish", () => {
 </template>
 
 <style>
-
 
 body {
   @apply bg-slate-800;
