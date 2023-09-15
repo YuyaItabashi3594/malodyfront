@@ -19,9 +19,21 @@ const testScoreDatas = [
     'combo': 827,
     'acc': 97.76,
     'judge': 'E',
-    'options': ['mirror','dash'],
+    'options': ['mirror', 'dash'],
     'time': '2023-09-12T11:04:00',
-}]
+  },
+  {
+    'img': '/sana.jpg',
+    'mode': 'key',
+    'title': 'Yuki wa Naniiro',
+    'diff': '7K Another Lv.16',
+    'score': 1850139,
+    'combo': 827,
+    'acc': 97.76,
+    'judge': 'E',
+    'options': [],
+    'time': '2023-09-12T11:04:00',
+  }]
 </script>
 
 <template>
@@ -32,7 +44,7 @@ const testScoreDatas = [
     </div>
     <div class="w-1/2">
       <p class="text-center text-xl mb-4">{{ $t('highscores') }}</p>
-      <UsersScore v-for="score in testScoreDatas" :scoreData="score" />
+      <UsersScore v-for="score in testScoreDatas" class="mt-2" :scoreData="score" />
     </div>
   </div>
 </template>

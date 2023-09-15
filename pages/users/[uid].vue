@@ -3,6 +3,27 @@ const modes = ['key', 'taiko', 'catch', 'slide']
 const tabs = ['recent', 'charts', 'profile']
 const currentTab = ref('recent')
 
+const testCharts = [
+  {
+    'img': '/sana.jpg',
+    'title': '雪は何色',
+    'mode': 'key',
+    'diff': '7K Another Lv.16',
+    'length': 89,
+    'playedCount': 660,
+    'lastUpdated': '2023-06-12T11:04:00',
+  },
+  {
+    'img': '/katahane.jpg',
+    'title': 'Alea jacta est!',
+    'mode': 'key',
+    'diff': '4K Another Lv.17',
+    'length': 97,
+    'playedCount': 3924,
+    'lastUpdated': '2023-06-12T11:04:00',
+  }
+]
+
 function changeCurrentTab(tab) {
   currentTab.value = tab
 }
@@ -22,6 +43,7 @@ function changeCurrentTab(tab) {
     </div>
     <div class="mt-6">
       <UsersRecent v-if="currentTab === 'recent'" />
+      <UsersChart v-if="currentTab === 'charts'" :chartDatas="testCharts"  />
     </div>
   </div>
 </template>

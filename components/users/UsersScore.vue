@@ -7,6 +7,7 @@ const props = defineProps({
 })
 
 const playTimeAgo = useTimeAgo(new Date(props.scoreData.time))
+console.log(props.scoreData.options.length)
 </script>
 
 <template>
@@ -30,8 +31,10 @@ const playTimeAgo = useTimeAgo(new Date(props.scoreData.time))
       <p class="text-center">{{ scoreData.judge }} judge</p>
       <p class="text-center">OP</p>
       <div class="flex flex-wrap">
-        <img v-if="!options" v-for="option in scoreData.options" class="object-fill h-8 w-8" :src="`/${option}.png`">
+        <img v-if="scoreData.options.length != 0" v-for="option in scoreData.options" class="object-fill h-8 w-8"
+          :src="`/${option}.png`">
       </div>
+      <p v-if="scoreData.options.length === 0" class="text-center">None</p>
     </div>
   </div>
 </template>

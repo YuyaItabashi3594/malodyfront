@@ -3,6 +3,8 @@ import CountryFlag from 'vue-country-flag-next'
 
 const tags = ['Publisher', 'Editor']
 
+const testAchievements = ['katahane','katahane','35','35']
+
 </script>
 
 <template>
@@ -36,14 +38,9 @@ const tags = ['Publisher', 'Editor']
       </div>
     </div>
     <div class="flex-row mr-2 ml-auto">
-      <p>Achievements</p>
-      <div class="grid gap-0 grid-cols-5">
-        <img src="/katahane.jpg" class="object-fill h-16 w-16">
-        <img src="/katahane.jpg" class="object-fill h-16 w-16">
-        <img src="/katahane.jpg" class="object-fill h-16 w-16">
-        <img src="/35.jpg" class="object-fill h-16 w-16">
-        <img src="/35.jpg" class="object-fill h-16 w-16">
-        <img src="/35.jpg" class="object-fill h-16 w-16">
+      <p class="text-lg">{{ $t('achievements') }}</p>
+      <div class="grid gap-1 grid-cols-5 mt-1">
+        <img v-for="achievement in testAchievements" :src="`/${achievement}.jpg`" class="object-fill h-16 w-16 rounded-lg">
       </div>
     </div>
   </div>
