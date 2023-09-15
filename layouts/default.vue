@@ -23,7 +23,7 @@ nuxtApp.hook("page:finish", () => {
         <header>
           <Navbar />
         </header>
-        <div class="">
+        <div class="min-h-screen">
           <slot />
         </div>
         <Footer />

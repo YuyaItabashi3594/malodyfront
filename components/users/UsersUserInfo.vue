@@ -6,14 +6,14 @@ const tags = ['Publisher', 'Editor']
 </script>
 
 <template>
-  <div class="flex text w-full bg-slate-700 bg-opacity-70 backdrop-blur-sm">
+  <div class="flex text w-full ">
     <div class="flex-row">
       <img class="object-fill h-36 w-36 rounded-3xl p-2" src="/roadrunner.jpg">
       <div class="text-center -mt-3">
         <CountryFlag country="jp" />
       </div>
     </div>
-    <div class="flex-row my-auto items-center justify-center">
+    <div class="flex-row my-4 items-center justify-center">
       <div class="flex gap-2">
         <p class="text-3xl">DPkaiden</p>
         <p v-for="tag in tags" class="border rounded-lg my-auto px-1">{{ tag }}</p>
@@ -35,8 +35,19 @@ const tags = ['Publisher', 'Editor']
         <p>{{ $t('chartSlots') }}: 160</p>
       </div>
     </div>
+    <div class="flex-row mr-2 ml-auto">
+      <p>Achievements</p>
+      <div class="grid gap-0 grid-cols-5">
+        <img src="/katahane.jpg" class="object-fill h-16 w-16">
+        <img src="/katahane.jpg" class="object-fill h-16 w-16">
+        <img src="/katahane.jpg" class="object-fill h-16 w-16">
+        <img src="/35.jpg" class="object-fill h-16 w-16">
+        <img src="/35.jpg" class="object-fill h-16 w-16">
+        <img src="/35.jpg" class="object-fill h-16 w-16">
+      </div>
+    </div>
   </div>
-  <div class="py-1 pl-2 flex gap-2 text-slate-400 text-sm bg-slate-700 bg-opacity-70 backdrop-blur-sm">
+  <div class="py-1 pl-2 flex gap-2 text-slate-300 text-sm">
     <p>{{ $t('joined') }}:2017-11-27</p>
     <p>{{ $t('lastLogin') }}:2023-9-14</p>
     <p>{{ $t('totalPlayTime') }}:21h18m</p>
@@ -47,6 +58,4 @@ const tags = ['Publisher', 'Editor']
 .info {
   @apply flex gap-3 text-sm
 }
-
-
 </style>

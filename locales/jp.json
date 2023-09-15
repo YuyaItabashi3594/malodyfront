@@ -24,5 +24,10 @@
   "chartSlots": "譜面スロット数",
   "joined": "登録日",
   "lastLogin": "最終ログイン",
-  "totalPlayTime": "プレイ時間"
+  "totalPlayTime": "プレイ時間",
+  "recent": "最近のアクティビティ",
+  "charts": "譜面",
+  "aboutMe": "About Me",
+  "activities": "アクティビティ",
+  "highscores": "ハイスコア"
 }

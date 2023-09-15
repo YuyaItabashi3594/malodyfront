@@ -24,5 +24,10 @@
   "chartSlots": "Chart Slots",
   "joined": "Joined",
   "lastLogin": "Last Login",
-  "totalPlayTime": "Total Play Time"
+  "totalPlayTime": "Total Play Time",
+  "recent": "Recent",
+  "charts": "Charts",
+  "aboutMe": "About Me",
+  "activities": "Activities",
+  "highscores": "Highscores"
 }
