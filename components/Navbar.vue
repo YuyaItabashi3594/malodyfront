@@ -3,6 +3,11 @@ import { OnClickOutside } from '@vueuse/components'
 const { locale } = useI18n()
 const isSearchVisible = ref(false)
 const isUserMenuVisible = ref(false)
+const route = useRoute()
+
+watch(() => route, () => {
+  isUserMenuVisible.value = false
+})
 
 </script>
 
@@ -16,7 +21,7 @@ const isUserMenuVisible = ref(false)
       </NuxtLink>
       <div class="flex text ml-8 gap-2">
         <NavbarContent :text="'player'" :url="'/player'" />
-        <NavbarContent :text="'chart'" :url="'/chart'" />
+        <NavbarContent :text="'chart'" :url="'/charts'" />
         <NavbarContent :text="'skin'" :url="'/skin'" />
         <NavbarContent :text="'store'" :url="'/store'" />
         <NavbarContent :text="'forum'" :url="'/forum'" />

@@ -18,7 +18,7 @@ const props = defineProps({
         <p class="truncate text-sm">{{ chartData.diff }}</p>
       </div>
     </div>
-    <div class="flex-row absolute top-1 left-2 bg-slate-700 bg-opacity-50 rounded p-1">
+    <div v-if="chartData.length && chartData.playedCount" class="flex-row absolute top-1 left-2 bg-slate-700 bg-opacity-50 rounded p-1">
       <div>
         <font-awesome-icon :icon="['fas', 'hourglass-half']" size="xs" /><span class="ml-1">{{ chartData.length }}s</span>
       </div>
