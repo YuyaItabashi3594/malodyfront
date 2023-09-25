@@ -13,14 +13,14 @@ nuxtApp.hook("page:finish", () => {
 
 <template>
   <Transition name="loading">
-    <div v-if="loading" class="fixed inset-0 flex items-center justify-center z-10 w-full h-full bg-slate-800">
+    <div v-if="loading" class="fixed inset-0 flex items-center justify-center z-10 w-full h-full">
       <p>loading</p>
     </div>
   </Transition>
   <div class="layout mx-auto px-2">
     <div class="items-center justify-top flex flex-col pb-10">
       <div class="w-full">
-        <header>
+        <header class="surfacehighest">
           <Navbar />
         </header>
         <div class="min-h-screen">
@@ -35,11 +35,38 @@ nuxtApp.hook("page:finish", () => {
 <style>
 
 body {
-  @apply bg-slate-800;
+  background-color: rgb(var(--v-theme-surfacelow));
+  color: rgba(var(--v-theme-onsurface), 0.9)
 }
 
-.text {
-  @apply text-white;
+header {
+  border-bottom: 1px solid rgba(var(--v-theme-outline), 0.9);
+}
+
+.surfacelow {
+  background-color: rgb(var(--v-theme-surfacelow));
+  color: rgba(var(--v-theme-onsurface), 0.9)
+}
+.surface {
+  background-color: rgb(var(--v-theme-surface));
+  color: rgba(var(--v-theme-onsurface), 0.9)
+}
+.surfacehigh {
+  background-color: rgb(var(--v-theme-surfacehigh));
+  color: rgba(var(--v-theme-onsurface), 0.9)
+}
+.surfacehighest {
+  background-color: rgb(var(--v-theme-surfacehighest));
+  color: rgba(var(--v-theme-onsurface), 0.9)
+}
+.surfacevariant {
+  background-color: rgb(var(--v-theme-surfacevariant));
+  color: rgba(var(--v-theme-onsurfacevariant), 0.9)
+}
+
+.tertiarycontainer {
+  background-color: rgb(var(--v-theme-tertiarycontainer));
+  color: rgba(var(--v-theme-ontertiarycontainer), 0.9)
 }
 
 .loading-leave-active {

@@ -33,7 +33,7 @@ const isNewerNews = computed(() => {
 </script>
 
 <template>
-  <div class="flex-row bg-slate-600">
+  <div class="flex-row">
     <img v-if="isNewerNews" class="object-cover h-40 w-full" :src="img" />
     <div class="flex items-center justify-center gap-1 ml-2 py-1 divide-x">
       <p>{{ date }}</p>

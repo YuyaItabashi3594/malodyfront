@@ -108,8 +108,8 @@ function checkNewChart(stableDate){
 </script>
 
 <template>
-  <div class="mr-10 ml-4">
-    <p class="text-slate-200 text-2xl">{{ $t('newArrival') }}</p>
+  <div class="ml-4 mt-4 px-2">
+    <p class="text-2xl">{{ $t('newArrival') }}</p>
     <div class="px-4 mt-4">
       <Carousel v-model="newSongCarousel" :autoplay="5000" :pauseAutoplayOnHover="true" :itemsToShow="1.95"
         :wrapAround="true" :transition="500">
@@ -125,7 +125,7 @@ function checkNewChart(stableDate){
           <Navigation />
         </template>
       </Carousel>
-      <div class="text" v-for="(slide, index) in testData">
+      <div class="" v-for="(slide, index) in testData">
         <div class="mt-1 relative flex items-center justify-center transition duration-100"
           :class="[index === newSongCarousel ? '' : 'opacity-60']">
           <div class="divide-x flex gap-1 w-full ml-4">
@@ -137,7 +137,7 @@ function checkNewChart(stableDate){
       </div>
     </div>
     
-    <p class="text-slate-200 text-2xl mt-6">{{ $t('weeklyShow') }}</p>
+    <p class="text-2xl mt-6">{{ $t('weeklyShow') }}</p>
     <div class="px-4 mt-4">
       <Carousel v-model="popularChartCarousel" :autoplay="5000" :pauseAutoplayOnHover="true" :itemsToShow="1.95"
         :wrapAround="true" :transition="500">
@@ -153,7 +153,7 @@ function checkNewChart(stableDate){
           <Navigation />
         </template>
       </Carousel>
-      <div class="text" v-for="(slide, index) in popularChartTestData">
+      <div class="" v-for="(slide, index) in popularChartTestData">
         <div class="mt-1 relative flex items-center justify-center transition duration-100"
           :class="[index === popularChartCarousel ? '' : 'opacity-60']">
           <div class="divide-x flex gap-1 w-full ml-4">

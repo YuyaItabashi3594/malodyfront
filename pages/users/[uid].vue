@@ -33,12 +33,12 @@ function changeCurrentTab(tab) {
   <Body class="bg-[url('/sana43.png')]" />
   <div class="bg-slate-700 bg-opacity-70 backdrop-blur-sm p-2">
     <UsersUserInfo />
-    <div class="mt-10 text grid grid-cols-4">
+    <div class="mt-10 grid grid-cols-4">
       <div v-for="mode in modes">
         <UsersModeInfo :mode="mode" />
       </div>
     </div>
-    <div class="text grid grid-cols-3 mt-4 gap-x-4 ">
+    <div class="grid grid-cols-3 mt-4 gap-x-4 ">
       <UsersTab v-for="tab in tabs" :tabName="tab" :currentTab="currentTab" @clicked="changeCurrentTab(tab)" />
     </div>
     <div class="mt-6">

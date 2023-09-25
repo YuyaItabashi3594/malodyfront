@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex-row shadow-black text relative">
+  <div class="flex-row shadow-black relative">
     <img class="rounded-t-lg object-fill" :src="chartData.img" />
     <div class="flex rounded-b-lg border">
       <img :src="`/${chartData.mode}.png`" class="object-fill h-8 w-8 my-auto ml-0.5" />
