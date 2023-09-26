@@ -18,6 +18,6 @@ const isTabHovered = ref(false)
 <template>
   <div class="flex-row" @mouseover="isTabHovered = true" @mouseleave="isTabHovered = false" @click="$emit('clicked')">
     <p class="rounded-lg text-center">{{ $t(tabName) }}</p>
-    <div :class="[isTabSelected || isTabHovered  ?'border-b-4 border-slate-200 opacity-50 mx-auto rounded-xl' : '']"></div>
+    <div :class="[isTabSelected || isTabHovered  ?'border-b-4 opacity-50 mx-auto rounded-xl' : '']"></div>
   </div>
 </template>

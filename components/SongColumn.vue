@@ -108,9 +108,9 @@ function checkNewChart(stableDate){
 </script>
 
 <template>
-  <div class="ml-4 mt-4 px-2">
-    <p class="text-2xl">{{ $t('newArrival') }}</p>
-    <div class="px-4 mt-4">
+  <div class="mt-4 px-2">
+    <p class="text-2xl ml-2">{{ $t('newArrival') }}</p>
+    <div class="p-4 mt-4 surfacehighest rounded-lg">
       <Carousel v-model="newSongCarousel" :autoplay="5000" :pauseAutoplayOnHover="true" :itemsToShow="1.95"
         :wrapAround="true" :transition="500">
         <Slide v-for="(slide, index) in testData" :key="slide">
@@ -138,7 +138,7 @@ function checkNewChart(stableDate){
     </div>
     
     <p class="text-2xl mt-6">{{ $t('weeklyShow') }}</p>
-    <div class="px-4 mt-4">
+    <div class="p-4 mt-4 surfacehighest rounded-lg">
       <Carousel v-model="popularChartCarousel" :autoplay="5000" :pauseAutoplayOnHover="true" :itemsToShow="1.95"
         :wrapAround="true" :transition="500">
         <Slide v-for="(slide, index) in popularChartTestData" :key="slide">

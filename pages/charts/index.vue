@@ -1,6 +1,5 @@
 <script setup>
 import axios from 'axios'
-import { UseOffsetPagination } from '@vueuse/components';
 
 const fetchData = async () => {
   try {
@@ -75,9 +74,10 @@ const testCharts = [
     'lastUpdated': '2023-06-12T11:04:00',
   }
 ]
-const testlength = 10
+const testlength = 20
+const currentPage = ref(1)
 
-const modes = ['all', 'key', 'taiko', 'catch', 'slide', 'ring']
+const modes = ['all', 'key', 'taiko', 'jubeat', 'catch', 'slide', 'ring', 'live', 'dancecube']
 const statuses = ['all', 'stable', 'beta', 'alpha']
 const currentMode = ref('key')
 const currentStatus = ref('stable')
@@ -86,57 +86,36 @@ const inputTitle = ref('')
 </script>
 
 <template>
-  <div class="flex p-4 mt-10 bg-slate-700 rounded-lg">
-    <div class="flex-row">
+  <div class="flex w-full mt-10 py-4 pl-4 rounded-lg surface">
+    <div class="flex-row w-1/2">
       <div class="flex gap-1">
-        <p class="text w-20 text-center my-auto">Mode</p>
+        <p class="w-20 text-center my-auto">Mode</p>
         <div v-for="mode in modes">
           <p @click="currentMode = 'all'" :class="[currentMode === 'all' ? 'bg-slate-400' : '']"
-            class="text text-center text-lg pt-2 h-12 w-12 border rounded-lg cursor-pointer" v-if="mode === 'all'">All</p>
+            class="text-center text-lg pt-2 h-10 w-10 border rounded-lg cursor-pointer" v-if="mode === 'all'">All</p>
           <img @click="currentMode = mode" :class="[currentMode === mode ? 'bg-slate-400' : '']" v-if="mode != 'all'"
-            :src="`/${mode}.png`" class="object-fill h-12 w-12 rounded-lg cursor-pointer" />
+            :src="`/${mode}.png`" class="object-fill h-10 w-10 rounded-lg cursor-pointer" />
         </div>
       </div>
-      <div class="flex gap-1 mt-2">
-        <p class="text w-20 text-center my-auto">Status</p>
-        <div v-for="status in statuses">
-          <p @click="currentStatus = status" :class="[currentStatus === status ? 'text' : '']"
-            class="text-slate-400 capitalize text-center px-4 cursor-pointer">{{ status }}</p>
-        </div>
+      <div class="flex gap-1 my-2 mt-2">
+        <p class="w-20 text-center my-auto">Status</p>
+        <v-radio-group class="h-10 -ml-2" inline :model-value="currentStatus">
+          <div class="capitalize" v-for="status in statuses">
+            <v-radio :label="status" :value="status"></v-radio>
+          </div>
+        </v-radio-group>
       </div>
-      <div class="flex">
-        <p class="text w-20 text-center my-auto pt-1">Creator</p>
-        <input :value="inputCreator" :placeholder="$t('searchCreator')"
-          class="mt-2 w-80 border rounded-lg border-slate-200" />
-      </div>
-      <div class="flex">
-        <p class="text w-20 text-center my-auto pt-1">Title</p>
-        <input :value="inputTitle" :placeholder="$t('searchTitle')"
-          class="mt-2 w-80 border rounded-lg border-slate-200" />
-        <button class="text ml-10 border rounded-lg px-4 py-1">{{ $t('search') }}</button>
-      </div>
+    </div>
+    <div class="flex-row justify-start w-1/2 mr-4">
+      <v-text-field hide-details :label="$t('searchCreator')" variant="solo-filled"></v-text-field>
+      <v-text-field hide-details class="mt-2" :label="$t('searchTitle')" variant="solo-filled"></v-text-field>
     </div>
   </div>
   <div class="flex items-center justify-center mt-5 text">
-    <UseOffsetPagination v-slot="{
-      currentPage,
-      currentPageSize,
-      next,
-      prev,
-      pageCount,
-      isFirstPage,
-      isLastPage
-    }" :total="testlength" :pageSize="2">
-      <div class="w-10 text-center">
-        <font-awesome-icon v-if="!isFirstPage" @click="prev" :icon="['fas', 'arrow-left']" />
-      </div>
-      <p class="mx-2">{{ currentPage }} / {{ pageCount }}</p>
-      <div class="w-10 text-center">
-        <font-awesome-icon v-if="!isLastPage" @click="next" :icon="['fas', 'arrow-right']" />
-      </div>
-    </UseOffsetPagination>
+    <v-pagination v-model="currentPage" :length="testlength" :total-visible="8" prev-icon="mdi-menu-left"
+      next-icon="mdi-menu-right" rounded="circle"></v-pagination>
   </div>
-  <div class="grid grid-cols-6 gap-2 mt-5 bg-slate-700">
+  <div class="grid grid-cols-6 gap-2 mt-5 surface p-2">
     <ChartContent v-for="chartData in testCharts" :chartData="chartData" />
   </div>
 </template>

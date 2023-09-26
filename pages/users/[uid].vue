@@ -24,26 +24,35 @@ const testCharts = [
   }
 ]
 
-function changeCurrentTab(tab) {
-  currentTab.value = tab
-}
+
 </script>
 
 <template>
   <Body class="bg-[url('/sana43.png')]" />
-  <div class="bg-slate-700 bg-opacity-70 backdrop-blur-sm p-2">
+  <div class="surfaceopacity backdrop-blur-sm p-2">
     <UsersUserInfo />
     <div class="mt-10 grid grid-cols-4">
       <div v-for="mode in modes">
         <UsersModeInfo :mode="mode" />
       </div>
     </div>
-    <div class="grid grid-cols-3 mt-4 gap-x-4 ">
-      <UsersTab v-for="tab in tabs" :tabName="tab" :currentTab="currentTab" @clicked="changeCurrentTab(tab)" />
-    </div>
-    <div class="mt-6">
+    <v-tabs class="mt-4" fixed-tabs :align-tabs="'center'" v-model="currentTab">
+      <v-tab v-for="tab in tabs" :value="tab">{{ $t(tab) }}</v-tab>
+    </v-tabs>
+    <div class="mt-6 surfaceopacity p-2">
       <UsersRecent v-if="currentTab === 'recent'" />
-      <UsersChart v-if="currentTab === 'charts'" :chartDatas="testCharts"  />
+      <UsersChart v-if="currentTab === 'charts'" :chartDatas="testCharts" />
     </div>
   </div>
 </template>
+
+<style scoped>
+.surfaceopacity {
+  background-color: rgba(var(--v-theme-surface), 0.7);
+  color: rgba(var(--v-theme-onsurface), 0.9)
+}
+.surfacehighestopacity {
+  background-color: rgba(var(--v-theme-surfacehigh), 0.7);
+  color: rgba(var(--v-theme-onsurface), 0.9)
+}
+</style>

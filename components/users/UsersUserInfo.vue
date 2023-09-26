@@ -47,7 +47,7 @@ const testAchievements = ['katahane', 'katahane', '35', '35','katahane', 'kataha
       </div>
     </div>
   </div>
-  <div class="py-1 pl-2 flex gap-2 text-slate-300 text-sm">
+  <div class="py-1 pl-2 flex gap-2 text-sm">
     <p>{{ $t('joined') }}:2017-11-27</p>
     <p>{{ $t('lastLogin') }}:2023-9-14</p>
     <p>{{ $t('totalPlayTime') }}:21h18m</p>

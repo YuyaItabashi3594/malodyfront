@@ -4,17 +4,19 @@
   <div class="rounded-t p-2 flex-row object-center justify-center w-32">
     <p class="text-center text-lg">DPkaiden</p>
   </div>
-  <div class="rounded-b p-4 border-t border-slate-700">
+  <v-divider></v-divider>
+  <div class="rounded-b p-4">
     <NuxtLink to="/users/1">
       <p class="user-menu-text">{{ $t('profile') }}</p>
     </NuxtLink>
     <p class="user-menu-text">{{ $t('messages') }}</p>
-    <p class="mt-6 border-t pt-1 user-menu-text">{{ $t('logout') }}</p>
+    <v-divider class="mt-2"></v-divider>
+    <p class="mt-2 user-menu-text text-red-700">{{ $t('logout') }}</p>
   </div>
 </template>
 
 <style scoped>
 .user-menu-text {
-  @apply hover:text-slate-300 transition duration-100
+  @apply transition duration-100 py-1
 }
 </style>
