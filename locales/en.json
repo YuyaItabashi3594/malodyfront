@@ -1,4 +1,5 @@
 {
+
   
   "player": "Player",
   "chart": "Chart",
@@ -34,5 +35,8 @@
 
   "searchCreator": "Input creator name here",
   "searchTitle": "Input title here",
-  "search": "Search"
+  "search": "Search",
+
+  "mode": "Mode",
+  "status": "Status"
 }

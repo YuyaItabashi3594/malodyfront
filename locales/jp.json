@@ -34,5 +34,8 @@
 
   "searchCreator": "譜面製作者で検索",
   "searchTitle": "タイトルで検索",
-  "search": "検索"
+  "search": "検索",
+
+  "mode": "モード",
+  "status": "ステータス"
 }

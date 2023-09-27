@@ -8,6 +8,16 @@ const isUserMenuVisible = ref(false)
 const route = useRoute()
 const theme = useTheme()
 
+const languages = [{
+    name: 'English',
+    value: 'en'
+  },
+  {
+    name: '日本語',
+    value: 'jp'
+  }
+]
+
 watch(() => route, () => {
   isUserMenuVisible.value = false
 })
@@ -38,17 +48,21 @@ function toggleTheme() {
         <font-awesome-icon class="text text-xl my-auto ml-4" :icon="['fab', 'discord']" />
       </ClientOnly>
       <div class="w-40 relative">
-        <div class="absolute -top-4 left-6 w-40">
-          <v-text-field :label="$t('search')" variant="underlined"></v-text-field>
+        <div class="absolute -top-5 left-4 w-40 scale-90">
+          <v-text-field clearable :label="$t('search')" variant="underlined">
+          </v-text-field>
         </div>
       </div>
     </div>
     <div class="flex w-1/4 justify-end">
-      <select class="rounded-lg w-20" v-model="locale">
-        <option disabled value="">{{ $t('selectLanguage') }}</option>
-        <option value="en">English</option>
-        <option value="jp">日本語</option>
-      </select>
+      <v-select
+      class="px-6"
+      v-model="locale"
+  :items="languages"
+  item-title="name"
+  item-value="value"
+  variant="underlined"
+></v-select>
       <div class="my-auto mr-6">
         <font-awesome-icon @click="toggleTheme" :icon="['fas', theme.global.current.value.dark ? 'moon' : 'sun']"
           size="xl" />

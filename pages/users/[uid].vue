@@ -1,7 +1,19 @@
 <script setup>
+
 const modes = ['key', 'taiko', 'catch', 'slide']
 const tabs = ['recent', 'charts', 'profile']
 const currentTab = ref('recent')
+const userImage = ref('/sana43.png')
+
+useHead({
+  bodyAttrs: {
+    style: computed(() => {
+      if (userImage.value) {
+        return "background-image: url('" + userImage.value + "')"
+      }
+    })
+  }
+})
 
 const testCharts = [
   {
@@ -12,6 +24,8 @@ const testCharts = [
     'length': 89,
     'playedCount': 660,
     'lastUpdated': '2023-06-12T11:04:00',
+    'cid': 126909,
+    'sid': 1,
   },
   {
     'img': '/katahane.jpg',
@@ -21,6 +35,8 @@ const testCharts = [
     'length': 97,
     'playedCount': 3924,
     'lastUpdated': '2023-06-12T11:04:00',
+    'cid': 126909,
+    'sid': 1,
   }
 ]
 
@@ -28,7 +44,6 @@ const testCharts = [
 </script>
 
 <template>
-  <Body class="bg-[url('/sana43.png')]" />
   <div class="surfaceopacity backdrop-blur-sm p-2">
     <UsersUserInfo />
     <div class="mt-10 grid grid-cols-4">
@@ -51,6 +66,7 @@ const testCharts = [
   background-color: rgba(var(--v-theme-surface), 0.7);
   color: rgba(var(--v-theme-onsurface), 0.9)
 }
+
 .surfacehighestopacity {
   background-color: rgba(var(--v-theme-surfacehigh), 0.7);
   color: rgba(var(--v-theme-onsurface), 0.9)

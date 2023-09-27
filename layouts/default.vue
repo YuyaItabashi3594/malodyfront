@@ -56,6 +56,16 @@ header,.divider {
   color: rgba(var(--v-theme-onprimary), 0.9)
 }
 
+.primarycontainer{
+  background-color: rgb(var(--v-theme-primarycontainer));
+  color: rgba(var(--v-theme-onprimarycontainer), 0.9)
+}
+
+.secondary{
+  background-color: rgb(var(--v-theme-secondary));
+  color: rgba(var(--v-theme-onsecondary), 0.9)
+}
+
 .surfacelowest {
   background-color: rgb(var(--v-theme-surfacelowest));
   color: rgba(var(--v-theme-onsurface), 0.9)

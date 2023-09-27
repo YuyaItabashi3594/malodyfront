@@ -37,6 +37,8 @@ const testCharts = [
     'mode': 'key',
     'diff': '7K Another Lv.16',
     'lastUpdated': '2023-06-12T11:04:00',
+    'cid':126909,
+    'sid': 1,
   },
   {
     'img': '/katahane.jpg',
@@ -44,6 +46,8 @@ const testCharts = [
     'mode': 'key',
     'diff': '4K Another Lv.17',
     'lastUpdated': '2023-06-12T11:04:00',
+    'cid':126909,
+    'sid': 1,
   },
   {
     'img': '/sana.jpg',
@@ -51,6 +55,8 @@ const testCharts = [
     'mode': 'key',
     'diff': '7K Another Lv.16',
     'lastUpdated': '2023-06-12T11:04:00',
+    'cid':126909,
+    'sid': 1,
   },
   {
     'img': '/katahane.jpg',
@@ -58,6 +64,8 @@ const testCharts = [
     'mode': 'key',
     'diff': '4K Another Lv.17',
     'lastUpdated': '2023-06-12T11:04:00',
+    'cid':126909,
+    'sid': 1,
   },
   {
     'img': '/sana.jpg',
@@ -65,6 +73,8 @@ const testCharts = [
     'mode': 'key',
     'diff': '7K Another Lv.16',
     'lastUpdated': '2023-06-12T11:04:00',
+    'cid':126909,
+    'sid': 1,
   },
   {
     'img': '/katahane.jpg',
@@ -72,6 +82,8 @@ const testCharts = [
     'mode': 'key',
     'diff': '4K Another Lv.17',
     'lastUpdated': '2023-06-12T11:04:00',
+    'cid':126909,
+    'sid': 1,
   }
 ]
 const testlength = 20
@@ -88,7 +100,7 @@ const inputTitle = ref('')
 <template>
   <div class="flex w-full mt-10 py-4 pl-4 rounded-lg surface">
     <div class="flex-row w-1/2">
-      <div class="flex gap-1">
+      <div class="flex gap-1 mt-2">
         <p class="w-20 text-center my-auto">Mode</p>
         <div v-for="mode in modes">
           <p @click="currentMode = 'all'" :class="[currentMode === 'all' ? 'bg-slate-400' : '']"
@@ -97,25 +109,31 @@ const inputTitle = ref('')
             :src="`/${mode}.png`" class="object-fill h-10 w-10 rounded-lg cursor-pointer" />
         </div>
       </div>
-      <div class="flex gap-1 my-2 mt-2">
+      <div class="flex gap-1 my-2 mt-6">
         <p class="w-20 text-center my-auto">Status</p>
-        <v-radio-group class="h-10 -ml-2" inline :model-value="currentStatus">
-          <div class="capitalize" v-for="status in statuses">
-            <v-radio :label="status" :value="status"></v-radio>
-          </div>
-        </v-radio-group>
+        <v-btn-toggle
+        class="rounded-lg border"
+          v-model="currentStatus"
+          rounded="0"
+          color=""
+          group
+        >
+          <v-btn v-for="status in statuses" class="text-capitalize" :value="status">
+            {{ status }}
+          </v-btn>
+        </v-btn-toggle>
       </div>
     </div>
     <div class="flex-row justify-start w-1/2 mr-4">
-      <v-text-field hide-details :label="$t('searchCreator')" variant="solo-filled"></v-text-field>
-      <v-text-field hide-details class="mt-2" :label="$t('searchTitle')" variant="solo-filled"></v-text-field>
+      <v-text-field clearable hide-details :label="$t('searchCreator')" variant="solo-filled"></v-text-field>
+      <v-text-field clearable hide-details class="mt-2" :label="$t('searchTitle')" variant="solo-filled"></v-text-field>
     </div>
   </div>
   <div class="flex items-center justify-center mt-5 text">
     <v-pagination v-model="currentPage" :length="testlength" :total-visible="8" prev-icon="mdi-menu-left"
       next-icon="mdi-menu-right" rounded="circle"></v-pagination>
   </div>
-  <div class="grid grid-cols-6 gap-2 mt-5 surface p-2">
+  <div class="grid grid-cols-6 gap-2 mt-5 surface p-2 rounded-lg">
     <ChartContent v-for="chartData in testCharts" :chartData="chartData" />
   </div>
 </template>

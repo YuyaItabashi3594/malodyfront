@@ -9,6 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
+  <NuxtLink :to="{ path:`/charts/${chartData.sid}` , query:{ cid:chartData.cid}}">
   <div class="rounded-lg flex-row shadow-black relative surfacehighest">
     <img class="object-fill rounded-t-lg" :src="chartData.img" />
     <div class="flex">
@@ -27,6 +28,7 @@ const props = defineProps({
       </div>
     </div>
   </div>
+  </NuxtLink>
 </template>
 
 <style scoped>
