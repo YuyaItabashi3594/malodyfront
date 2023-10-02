@@ -12,6 +12,7 @@ const testCharts = [
     'lastUpdated': '2023-06-12T11:04:00',
     'cid': 126909,
     'sid': 1,
+    'mapper': 'DPkaiden'
   },
   {
     'img': '/sana2.png',
@@ -21,6 +22,57 @@ const testCharts = [
     'lastUpdated': '2023-06-12T11:04:00',
     'cid': 126910,
     'sid': 1,
+    'mapper': 'DPkaiden'
+  },
+  {
+    'img': '/sana43.png',
+    'title': '雪は何色',
+    'mode': 'key',
+    'diff': '7K Normal Lv.7',
+    'lastUpdated': '2023-06-12T11:04:00',
+    'cid': 126911,
+    'sid': 1,
+    'mapper': 'DPkaiden'
+  },
+  {
+    'img': '/sana43.png',
+    'title': '雪は何色',
+    'mode': 'slide',
+    'diff': 'Hard Lv.19',
+    'lastUpdated': '2023-06-12T11:04:00',
+    'cid': 126912,
+    'sid': 1,
+    'mapper': 'ITOUSHI'
+  },
+  {
+    'img': '/sana43.png',
+    'title': '雪は何色',
+    'mode': 'taiko',
+    'diff': 'Extreme Lv.20',
+    'lastUpdated': '2023-06-12T11:04:00',
+    'cid': 126913,
+    'sid': 1,
+    'mapper': 'tkdkendo'
+  },
+  {
+    'img': '/sana43.png',
+    'title': '雪は何色',
+    'mode': 'taiko',
+    'diff': 'Hard Lv.14',
+    'lastUpdated': '2023-06-12T11:04:00',
+    'cid': 126914,
+    'sid': 1,
+    'mapper': 'tkdkendo'
+  },
+  {
+    'img': '/sana43.png',
+    'title': '雪は何色',
+    'mode': 'taiko',
+    'diff': 'Normal Lv.7',
+    'lastUpdated': '2023-06-12T11:04:00',
+    'cid': 126915,
+    'sid': 1,
+    'mapper': 'tkdkendo'
   },
 ]
 
@@ -32,7 +84,9 @@ const testSong = {
   'length': 89,
   'bpm': 179,
   'tags': ['GalGame', 'FemaleVocal'],
+  'description': ''
 }
+
 
 const currentChart = computed(() => {
   const chart = testCharts.find(chart => chart.cid === currentCid.value)

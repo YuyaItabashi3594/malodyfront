@@ -37,5 +37,7 @@
   "search": "検索",
 
   "mode": "モード",
-  "status": "ステータス"
+  "status": "ステータス",
+
+  "songDescription": "曲について"
 }

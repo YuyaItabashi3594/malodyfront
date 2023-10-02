@@ -117,4 +117,14 @@ header,.divider {
 .layout {
   height: 100vh;
   width: 1080px;
-}</style>
+}
+
+/* styles for markdown(cannot scoped so I put them here) */
+.markdown h1{
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 2.5rem;
+  letter-spacing: 0.00735em;
+}
+
+</style>

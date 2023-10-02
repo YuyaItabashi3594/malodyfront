@@ -1,4 +1,5 @@
 <script setup>
+import VueMarkdown from 'vue-markdown-render'
 const props = defineProps({
   song: {
     type: Object,
@@ -13,14 +14,47 @@ const props = defineProps({
     required: true
   }
 })
+const testModes = ['key', 'slide', 'taiko', 'pad']
+const openedMode = ref()
+
+const separatedChartsByMode = computed(() => {
+  const separatedCharts = {}
+  testModes.forEach(mode => {
+    separatedCharts[mode] = searchSpecificModeChart(mode)
+  })
+  return separatedCharts
+})
 
 const dummyTags = ['hoge', 'fuga', 'piyo', 'foo', 'bar', 'baz', 'qux', 'quux', 'corge', 'grault', 'garply', 'waldo', 'fred', 'plugh', 'xyzzy', 'thud']
+
+const markdownContent = ref('')
+const fetchMarkdown = async () => {
+  const filePath = `../markdown/${props.song.sid}.md`;
+  fetch(filePath)
+    .then(response => response.text())
+    .then(data => {
+      console.log(data)
+      markdownContent.value = data
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
+
+const searchSpecificModeChart = (mode) => {
+  return props.charts.filter(chart => chart.mode === mode)
+}
+
+onMounted(() => {
+  fetchMarkdown()
+})
+
 
 </script>
 
 <template>
   <div class="flex">
-    <v-card class="primaryopacity min-w-[67%]">
+    <v-card class="surfacehighestopacity min-w-[67%]">
       <div class="d-flex flex-no-wrap justify-space-between">
         <div>
           <v-card-title class="text-h4 mt-4">
@@ -42,23 +76,32 @@ const dummyTags = ['hoge', 'fuga', 'piyo', 'foo', 'bar', 'baz', 'qux', 'quux', '
           <v-img :src="song.cover"></v-img>
         </v-avatar>
       </div>
-    </v-card>
-    <v-card class="min-w-[33%] secondaryopacity" max-width="300">
-      <div class="flex">
-        <v-select :label="$t('mode')" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"></v-select>
-        <v-select :label="$t('status')" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"></v-select>
+      <div class="mt-4">
+        <p class="text-lg font-semibold ml-4">{{ $t('songDescription') }}</p>
+        <v-divider class="mt-1"></v-divider>
+        <vue-markdown class="markdown mt-4 px-4 overflow-auto h-80" :source="markdownContent"></vue-markdown>
       </div>
-      <v-select label="Select" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"></v-select>
-      <v-list class="secondarycontaineropacity">
-        <v-list-item
-        v-for="chart in charts"
-        :key="chart"
-        :title="chart.diff"
-        :prepend-avatar="`/${chart.mode}.png`"
-        :value="chart.cid"
-        :active="chart.cid === currentChartId"
-        @click="$emit('otherChartClicked',chart.cid)">
-        </v-list-item>
+    </v-card>
+    <v-card class="min-w-[33%] surfaceopacity">
+      <v-list :max-height="619" v-model:opened="openedMode">
+        <v-list-group v-for="mode in testModes" :value="mode">
+          <template v-slot:activator="{ props }">
+            <v-list-item class="" v-bind="props">
+              <v-list-item-content class="d-flex">
+                <v-list-item-avatar tile>
+                  <v-img class="object-scale-down h-10 w-10" :src="`/${mode}.png`"></v-img>
+                </v-list-item-avatar>
+                <v-list-item-title class="ml-4 my-auto">{{ mode }} ({{ separatedChartsByMode[mode].length }})</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </template>
+          <v-list v-for="chart in separatedChartsByMode[mode]" :key="chart.cid">
+            <v-list-item>
+              <p class="my-auto">{{ chart.diff }}</p>
+              <p class="text-xs my-auto">by {{ chart.mapper }}</p>
+            </v-list-item>
+          </v-list>
+        </v-list-group>
       </v-list>
     </v-card>
   </div>
@@ -83,5 +126,15 @@ const dummyTags = ['hoge', 'fuga', 'piyo', 'foo', 'bar', 'baz', 'qux', 'quux', '
 .secondarycontaineropacity {
   background-color: rgb(var(--v-theme-secondarycontainer), 0.8);
   color: rgba(var(--v-theme-onsecondarycontainer), 0.9)
+}
+
+.surfaceopacity {
+  background-color: rgba(var(--v-theme-surface), 0.90);
+  color: rgba(var(--v-theme-onsurface), 0.9)
+}
+
+.surfacehighestopacity {
+  background-color: rgba(var(--v-theme-surfacehigh), 0.95);
+  color: rgba(var(--v-theme-onsurface), 0.9)
 }
 </style>
