@@ -39,5 +39,7 @@
   "mode": "モード",
   "status": "ステータス",
 
-  "songDescription": "曲について"
+  "songDescription": "曲について",
+  "ranking": "ランキング",
+  "chartDescription": "譜面について"
 }

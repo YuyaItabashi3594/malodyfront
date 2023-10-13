@@ -2,6 +2,8 @@
 
 const route = useRoute()
 const currentCid = ref(Number(route.query.cid))
+const currentTab = ref('ranking')
+const tabs = ['ranking', 'chartDescription']
 
 const testCharts = [
   {
@@ -116,4 +118,8 @@ function changeCurrentChart(cid) {
 <template>
   <ChartsSongInfo :song="testSong" :charts="testCharts" :currentChartId="currentCid"
     @otherChartClicked="changeCurrentChart"></ChartsSongInfo>
+    <v-tabs class="mt-4 surface" fixed-tabs :align-tabs="'center'" v-model="currentTab">
+      <v-tab v-for="tab in tabs" :value="tab"><p class="capitalize">{{ $t(tab) }}</p></v-tab>
+    </v-tabs>
+  <ChartsRanking v-if="currentTab === 'ranking'" :cid="currentCid"></ChartsRanking>
 </template>

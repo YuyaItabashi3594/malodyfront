@@ -40,5 +40,7 @@
   "mode": "Mode",
   "status": "Status",
 
-  "songDescription": "Song Description"
+  "songDescription": "About this song",
+  "ranking": "Ranking",
+  "chartDescription": "About this chart"
 }
