@@ -41,5 +41,11 @@
 
   "songDescription": "曲について",
   "ranking": "ランキング",
-  "chartDescription": "譜面について"
+  "chartDescription": "譜面について",
+
+  "howToUseSkin": "スキンの使用方法",
+  "uploadSkin": "スキンをアップロード",
+  "download": "ダウンロード",
+  "price": "価格",
+  "close": "閉じる"
 }

@@ -10,7 +10,7 @@ const props = defineProps({
 
 <template>
   <NuxtLink :to="{ path:`/charts/${chartData.sid}` , query:{ cid:chartData.cid}}">
-  <div class="rounded-lg flex-row shadow-black relative surfacehighest">
+  <div class="rounded-lg flex-row shadow-black relative surfacehigh hover:bg-slate-700">
     <img class="object-fill rounded-t-lg" :src="chartData.img" />
     <div class="flex">
       <img :src="`/${chartData.mode}.png`" class="object-fill h-8 w-8 my-auto ml-0.5" />

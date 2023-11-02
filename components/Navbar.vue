@@ -40,7 +40,7 @@ function toggleTheme() {
       <div class="flex text ml-8 gap-2">
         <NavbarContent :text="'player'" :url="'/player'" />
         <NavbarContent :text="'chart'" :url="'/charts'" />
-        <NavbarContent :text="'skin'" :url="'/skin'" />
+        <NavbarContent :text="'skin'" :url="'/skins'" />
         <NavbarContent :text="'store'" :url="'/store'" />
         <NavbarContent :text="'forum'" :url="'/forum'" />
       </div>

@@ -118,8 +118,17 @@ function changeCurrentChart(cid) {
 <template>
   <ChartsSongInfo :song="testSong" :charts="testCharts" :currentChartId="currentCid"
     @otherChartClicked="changeCurrentChart"></ChartsSongInfo>
+  <v-card class="mt-6">
+    <div class="flex items-center justify-center pt-4">
+      <img class="object-scale-down h-10 w-10" :src="`/${currentChart.mode}.png`">
+      <p class="ml-2">{{ currentChart.diff }}</p>
+    </div>
+
     <v-tabs class="mt-4 surface" fixed-tabs :align-tabs="'center'" v-model="currentTab">
-      <v-tab v-for="tab in tabs" :value="tab"><p class="capitalize">{{ $t(tab) }}</p></v-tab>
+      <v-tab v-for="tab in tabs" :value="tab">
+        <p class="capitalize">{{ $t(tab) }}</p>
+      </v-tab>
     </v-tabs>
+  </v-card>
   <ChartsRanking v-if="currentTab === 'ranking'" :cid="currentCid"></ChartsRanking>
 </template>

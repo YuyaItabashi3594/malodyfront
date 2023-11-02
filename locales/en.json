@@ -42,5 +42,11 @@
 
   "songDescription": "About this song",
   "ranking": "Ranking",
-  "chartDescription": "About this chart"
+  "chartDescription": "About this chart",
+
+  "howToUseSkin": "How to use skin",
+  "uploadSkin": "Upload skin",
+  "download": "Download",
+  "price": "Price",
+  "close": "Close"
 }
