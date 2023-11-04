@@ -98,16 +98,16 @@ const inputTitle = ref('')
 </script>
 
 <template>
-  <div class="flex w-full mt-10 py-4 pl-4 rounded-lg surface">
-    <div class="flex-row w-1/2">
-      <div class="flex gap-1 mt-2">
+  <div class="flex w-full mt-10 py-6 pl-4 rounded-lg surface">
+    <div class="flex-row ">
+      <div class="flex gap-1">
         <p class="w-20 text-center my-auto">Mode</p>
-        <div v-for="mode in modes">
-          <p @click="currentMode = 'all'" :class="[currentMode === 'all' ? 'bg-slate-400' : '']"
-            class="text-center text-lg pt-2 h-10 w-10 border rounded-lg cursor-pointer" v-if="mode === 'all'">All</p>
-          <img @click="currentMode = mode" :class="[currentMode === mode ? 'bg-slate-400' : '']" v-if="mode != 'all'"
-            :src="`/${mode}.png`" class="object-fill h-10 w-10 rounded-lg cursor-pointer" />
-        </div>
+        <v-btn-toggle class="rounded-lg border" v-model="currentMode" rounded="0" color="" group>
+            <v-btn v-for="mode in modes" class="text-capitalize" :value="mode">
+              <v-text v-if="mode === 'all'">All</v-text>
+              <v-img v-else :src="`/${mode}.png`" class="object-fill w-8 rounded-lg cursor-pointer" />
+            </v-btn>
+          </v-btn-toggle>
       </div>
       <div class="flex gap-1 my-2 mt-6">
         <p class="w-20 text-center my-auto">Status</p>
@@ -124,7 +124,7 @@ const inputTitle = ref('')
         </v-btn-toggle>
       </div>
     </div>
-    <div class="flex-row justify-start w-1/2 mr-4">
+    <div class="flex-row justify-start w-full mx-4">
       <v-text-field clearable hide-details :label="$t('searchCreator')" variant="solo-filled"></v-text-field>
       <v-text-field clearable hide-details class="mt-2" :label="$t('searchTitle')" variant="solo-filled"></v-text-field>
     </div>

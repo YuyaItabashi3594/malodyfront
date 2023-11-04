@@ -11,7 +11,8 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/markdown-it": "^13.0.2",
-    "nuxt": "^3.7.1"
+    "nuxt": "^3.7.1",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.4.0",

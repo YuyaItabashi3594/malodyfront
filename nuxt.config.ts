@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { existsSync, readFileSync } from "node:fs";
+
 export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss",'@vueuse/nuxt','@nuxt/content','@nuxtjs/i18n'],
   css: ["vuetify/lib/styles/main.sass", 
@@ -11,5 +13,19 @@ export default defineNuxtConfig({
     transpile: [
       "vuetify"
     ],
+  },
+  vite: {
+    vue: {
+      script: {
+        fs: {
+          fileExists(file: string) {
+            return existsSync(file);
+          },
+          readFile(file: string) {
+            return readFileSync(file, "utf-8");
+          },
+        },
+      },
+    },
   },
 })

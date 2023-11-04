@@ -9,7 +9,7 @@ const route = useRoute()
 
 <template>
   <NuxtLink :to="url">
-    <div class="w-auto cursor-pointer">
+    <div class="w-auto cursor-pointer hover:border-b transition duration-150">
       <div class="transition duration-75"
       :class="route.path.includes(urlWithoutSlash) && urlWithoutSlash != '' ? 'border-b border-gray-400' : ''"
       >
