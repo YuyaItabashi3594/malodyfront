@@ -1,6 +1,7 @@
 <script setup>
 import { OnClickOutside } from '@vueuse/components'
 import { useTheme } from 'vuetify'
+import { useI18n } from 'vue-i18n'
 
 const { locale } = useI18n()
 const isSearchVisible = ref(false)
